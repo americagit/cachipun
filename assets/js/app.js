@@ -3,8 +3,6 @@ let opt_piedra = document.getElementById("piedra");
 let opt_papel = document.getElementById("papel");
 let opt_tijera = document.getElementById("tijera");
 
-// paso 5
-let start = document.getElementById("start_game");
 
 
 // paso 3.
@@ -19,8 +17,8 @@ let select_player_1 = "0"
 let select_player_2 = "0"
 
 
-// paso 7 funcion que ejecuta el juego de la cpu cuando le damos click
-start.onclick = function () {
+
+function opPC() {
     select_player_2 = opt_random(val_opt_random.toString());
     display_option_player2(select_player_2); // llama a la funcion que pone la imagen de la selecion de la cpu 
 }
@@ -29,6 +27,7 @@ start.onclick = function () {
 opt_piedra.onclick = function () {
     select_player_1 = "piedra"
     img_opt_player1.innerHTML = '<i id="piedra" class="fa-solid fa-hand-back-fist fa-beat fa-2xl" style="color: #B197FC; cursor: pointer"></i>';
+
 }
 
 opt_papel.onclick = function () {
@@ -63,4 +62,22 @@ function display_option_player2(select_player_2) {
         img_opt_player2.innerHTML = '<i id="tijera" class="fa-solid fa-hand-scissors fa-beat fa-2xl" style="cursor: pointer;"></i>';
     }
 }
+
+// funcioniniciar
+
+
+opt_piedra.addEventListener('click', function () {
+    opcionJugador = "piedra"
+    opPC();
+});
+
+opt_papel.addEventListener('click', function () {
+    opcionJugador = "papel"
+    opPC();
+});
+
+opt_tijera.addEventListener('click', function () {
+    opcionJugador = "tijera"
+    opPC();
+});
 
