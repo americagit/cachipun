@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Cachipum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome/fontawesome-free-6.5.1-web/css/all.css">
+
+</head>
+<style>
+    @media (min-width: 992px) {
+    .alto{
+        height: 100vh;
+        }
+    }
+</style>
+
+
+<body class="container-fluid ">
+    <main  class="container d-flex flex-column justify-content-center alto" >
+        
+        <h1 class="text-center mt-5">¡...Juguemos Cachipun...!</h1>
+        <div>
+            <!-- juego -->
+            <section>
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 bg-black border border-white border-3 rounded-4 py-5 px-5">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body py-5 d-flex flex-column justify-content-center">
+                                <!-- persona -->
+                                <div>
+                                    <p id="player_1" class="card-text text-center my-5"></p>
+                                </div>
+                                <!-- <p class="card-text text-center ">MANO</p> -->
+                                <div class="text-center mt-5">
+                                    <i class="fa-solid fa-person fa-2xl my-5"></i>
+                                </div>  
+                                <p id="puntos_persona" class="card-text text-center mt-3 my-5">0</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <!-- resultado-->
+                                <h5 id="result" class="card-title text-center py-5"><img src="/assets/img/vs.png" class="img-fluid" alt=""></h5> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body py-5  d-flex flex-column justify-content-center">
+                                <!-- maquina -->
+                                <div>
+                                    <p id="player_2" class="card-text text-center my-5">mano cpu</p>
+                                </div>                                
+                               <div class="text-center">
+                                <i class="fa-solid fa-desktop fa-2xl my-5"></i>
+                               </div>
+                                <p id="puntos_cpu" class="card-text text-center my-5">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- botones de opcion -->
+            <section>
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 bg-white border border-white border-3 rounded-4 py-5 px-5">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div>
+                                <i id="piedra" class="fa-solid fa-hand-back-fist fa-beat fa-2xl" style="color: #B197FC; cursor: pointer"></i>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i id="papel" class="fa-solid fa-hand fa-beat fa-2xl" style="cursor: pointer;"></i>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i id="tijera" class="fa-solid fa-hand-scissors fa-beat fa-2xl" style="cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto p-2" style="width: 200px;">
+                        <p class="text-center mt-5">Elije una opción...!</p>
+                    </div>
+                </div>
+
+            </section>
+            <!-- iniciar juego -->
+            <div class="row mt-3">
+                <div class="d-grid gap-2 col-6 mx-auto ">
+                    <button id="start_game" class="btn btn-primary" type="button"> Juego CPU</button>
+                    <button class="btn btn-primary mt-2 mb-5" type="button">Salir</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+        <!-- <script>
+            while (true) {
+                const jugada_usuario = prompt("Elija\n1: Piedra\n2: Papel\n3: Tijeras\n0: Terminar")
+                const jugada_cpu = Math.ceil(Math.random() * 3)
+
+                console.log("El usuario jugó " + jugada_usuario);
+                console.log("La CPU jugó " + jugada_cpu);
+
+                if (jugada_usuario == 1) {
+                    if (jugada_cpu == 1) {
+                        console.log("Empate!")
+                    }
+                    else if (jugada_cpu == 2) {
+                        console.log("Perdiste!")
+                    }
+                    else if (jugada_cpu == 3) {
+                        console.log("Ganaste!")
+                    }
+                }
+                else if (jugada_usuario == 2) {
+                    if (jugada_cpu == 1) {
+                        console.log("Ganaste!")
+                    }
+                    else if (jugada_cpu == 2) {
+                        console.log("Empate!")
+                    }
+                    else if (jugada_cpu == 3) {
+                        console.log("Perdiste!")
+                    }
+                }
+                else if (jugada_usuario == 3) {
+                    if (jugada_cpu == 1) {
+                        console.log("Perdiste!")
+                    }
+                    else if (jugada_cpu == 2) {
+                        console.log("Ganaste!")
+                    }
+                    else if (jugada_cpu == 3) {
+                        console.log("Empate!")
+                    }
+                }
+                else if (jugada_usuario == 0) {
+                    break
+                }
+                else {
+                    console.log("¿Por qué, amigo?");
+                }
+            } -->
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    
+    <script src="assets/js/app.js"></script>
+
+    <!-- cdn bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
